@@ -1,0 +1,10 @@
+{
+	"name": "Pepino",
+	"description": "Gerador de documentação para a linguagem Gherkin",
+	"version": "0.1.0",
+	"license": "Unlicense",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lucasPereira/pepino.git"
+	}
+}
