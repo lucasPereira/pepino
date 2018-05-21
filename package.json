@@ -1,17 +1,17 @@
 {
-	"name": "pepino-conversor",
-	"description": "Gerador de documentação para a linguagem Gherkin",
-	"version": "1.0.3",
-	"license": "Unlicense",
-	"main": "principal.js",
-	"bin": {
-		"pepino-conversor": "./pepino"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/lucasPereira/pepino.git"
-	},
-	"dependencies": {
-		"html-pdf": "2.2.0"
-	}
+  "name": "pepino-conversor",
+  "description": "Gerador de documentação para a linguagem Gherkin",
+  "version": "1.0.4",
+  "license": "Unlicense",
+  "main": "principal.js",
+  "bin": {
+    "pepino-conversor": "./pepino"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasPereira/pepino.git"
+  },
+  "dependencies": {
+    "html-pdf": "2.2.0"
+  }
 }
