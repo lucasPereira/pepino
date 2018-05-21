@@ -5,7 +5,7 @@ Gerador de documentação em HTML e PDF para a linguagem Gherkin
 ## Instalação
 
 ```
-npm install -g pepino-conversor
+sudo npm install -g pepino-conversor
 ```
 
 ## Uso
