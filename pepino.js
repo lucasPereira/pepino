@@ -16,6 +16,7 @@ module.exports = {
 			let entrada = fs.readFileSync(arquivo, 'utf-8');
 			entrada = entrada.replace(/^\s*/gm, '');
 			entrada = entrada.replace(/\s*$/gm, '');
+			entrada = entrada + `<p class="comentario"># ${arquivo}</p>`;
 			entrada = entrada.replace(/^#(.*)$/gm, '<p class="comentario">#$1</p>');
 			entrada = entrada.replace(/^História:(.*)$/gm, '<p class="historia"><em>História:</em>$1</p>');
 			entrada = entrada.replace(/^Cenário:(.*)$/gm, '<p class="cenario"><em>Cenário:</em>$1</p>');
