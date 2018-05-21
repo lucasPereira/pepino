@@ -16,7 +16,6 @@ module.exports = {
 			let entrada = fs.readFileSync(arquivo, 'utf-8');
 			entrada = entrada.replace(/^\s*/gm, '');
 			entrada = entrada.replace(/\s*$/gm, '');
-			entrada = entrada + `<p class="comentario"># ${arquivo}</p>`;
 			entrada = entrada.replace(/^#(.*)$/gm, '<p class="comentario">#$1</p>');
 			entrada = entrada.replace(/^História:(.*)$/gm, '<p class="historia"><em>História:</em>$1</p>');
 			entrada = entrada.replace(/^Cenário:(.*)$/gm, '<p class="cenario"><em>Cenário:</em>$1</p>');
@@ -29,7 +28,7 @@ module.exports = {
 			entrada = entrada.replace(/^Então(.*)$/gm, '<p class="filho-cenario-contexto"><em>Então</em>$1</p>');
 			entrada = entrada.replace(/^E(.*)$/gm, '<p class="filho-cenario-contexto"><em>E</em>$1</p>');
 			entrada = entrada.replace(/^Ou(.*)$/gm, '<p class="filho-cenario-contexto"><em>Ou</em>$1</p>');
-			saida += templateHistoria.replace('${conteudo}', entrada);
+			saida += templateHistoria.replace('${conteudo}', `<p class="comentario"># ${arquivo}</p>\n${entrada}`);
 		});
 		saida = template.replace('${conteudo}', saida);
 		fs.writeFileSync(SAIDA_HTML, saida, 'utf-8');
