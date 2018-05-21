@@ -17,5 +17,4 @@ arquivosRecebidos.forEach((arquivo) => {
 		console.log(`Arquivo inválido: ${arquivo}`);
 	}
 });
-
-pepino.gerarHtml(arquivos);
+pepino.gerarPdf(arquivos);

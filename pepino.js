@@ -1,12 +1,17 @@
 'use strict';
 
 const fs = require('fs');
+const pdf = require('html-pdf');
+const path = require('path');
+
+const SAIDA_HTML = './historias.html';
+const SAIDA_PDF = './historias.pdf';
 
 module.exports = {
 	gerarHtml: function (arquivos) {
 		let saida = '';
-		let template = fs.readFileSync('pepino.template.html', 'utf-8');
-		let templateHistoria = fs.readFileSync('historia.template.html', 'utf-8');
+		let template = fs.readFileSync(path.resolve(__dirname, 'pepino.template.html'), 'utf-8');
+		let templateHistoria = fs.readFileSync(path.resolve(__dirname, 'historia.template.html'), 'utf-8');
 		arquivos.forEach((arquivo) => {
 			let entrada = fs.readFileSync(arquivo, 'utf-8');
 			entrada = entrada.replace(/^\s*/gm, '');
@@ -26,6 +31,14 @@ module.exports = {
 			saida += templateHistoria.replace('${conteudo}', entrada);
 		});
 		saida = template.replace('${conteudo}', saida);
-		fs.writeFile('saida.html', saida, 'utf-8');
+		fs.writeFileSync(SAIDA_HTML, saida, 'utf-8');
+	},
+
+	gerarPdf: function (arquivos) {
+		this.gerarHtml(arquivos);
+		let html = fs.readFileSync(SAIDA_HTML, 'utf-8');
+		pdf.create(html, {
+			format: "A4",
+		}).toFile(SAIDA_PDF, () => {});
 	}
 }

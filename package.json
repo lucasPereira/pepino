@@ -6,5 +6,8 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/lucasPereira/pepino.git"
+	},
+	"dependencies": {
+		"html-pdf": "2.2.0"
 	}
 }
