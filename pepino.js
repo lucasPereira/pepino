@@ -3,12 +3,13 @@
 const fs = require('fs');
 const pdf = require('html-pdf');
 const path = require('path');
-
-const SAIDA_HTML = './historias.html';
-const SAIDA_PDF = './historias.pdf';
+const moment = require('moment');
 
 module.exports = {
-	gerarHtml: function (arquivos) {
+	gerarHtml: function (arquivos, nomeDoArquivoDeSaida) {
+		if (!nomeDoArquivoDeSaida) {
+			nomeDoArquivoDeSaida = "historias-" + moment().format("Y-MM-DD");
+		}
 		let saida = '';
 		let template = fs.readFileSync(path.resolve(__dirname, 'pepino.template.html'), 'utf-8');
 		let templateHistoria = fs.readFileSync(path.resolve(__dirname, 'historia.template.html'), 'utf-8');
@@ -31,14 +32,17 @@ module.exports = {
 			saida += templateHistoria.replace('${conteudo}', `<p class="comentario"># ${arquivo}</p>\n${entrada}`);
 		});
 		saida = template.replace('${conteudo}', saida);
-		fs.writeFileSync(SAIDA_HTML, saida, 'utf-8');
+		fs.writeFileSync(nomeDoArquivoDeSaida + '.html', saida, 'utf-8');
 	},
 
-	gerarPdf: function (arquivos) {
-		this.gerarHtml(arquivos);
-		let html = fs.readFileSync(SAIDA_HTML, 'utf-8');
+	gerarPdf: function (arquivos, nomeDoArquivoDeSaida) {
+		if (!nomeDoArquivoDeSaida) {
+			nomeDoArquivoDeSaida = "historias-" + moment().format("Y-MM-DD");
+		}
+		this.gerarHtml(arquivos, nomeDoArquivoDeSaida);
+		let html = fs.readFileSync(nomeDoArquivoDeSaida + '.html', 'utf-8');
 		pdf.create(html, {
 			format: "A4",
-		}).toFile(SAIDA_PDF, () => {});
+		}).toFile(nomeDoArquivoDeSaida + '.pdf', () => {});
 	}
 }
