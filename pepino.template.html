@@ -5,7 +5,8 @@
 	</head>
 	<body>
 		<style>
-			p {
+			p,
+			pre {
 				color: #666;
 				font-family: monospace;
 				font-size: 16px;
@@ -13,7 +14,7 @@
 				margin: 0;
 			}
 
-			div.arquivo {
+			.arquivo {
 				margin-bottom: 40px;
 			}
 
@@ -21,40 +22,47 @@
 				font-style: normal;
 			}
 
-			p.comentario {
+			.comentario {
 				color: #666;
 				font-weight: bold;
 			}
 
-			p.historia em {
+			.historia em {
 				color: #993366;
 			}
 
-			p.cenario em,
-			p.contexto em {
+			.contexto em {
+				font-weight: bold;
+			}
+
+			.cenario em,
+			.contexto em,
+			.exemplos {
 				color: #FF6600;
 			}
 
-			p.filho-historia em,
-			p.filho-cenario-contexto em {
+			.filho-historia em,
+			.filho-cenario-contexto em {
 				color: #000;
 			}
 
-			p.historia {
+			.historia {
 				margin-top: 20px;
 			}
 
-			p.cenario,
-			p.contexto {
+			.cenario,
+			.contexto {
 				margin-top: 10px;
 				padding-left: 60px;
 			}
 
-			p.filho-historia {
+			.filho-historia {
 				padding-left: 30px;
 			}
 
-			p.filho-cenario-contexto {
+			.filho-cenario-contexto,
+			.exemplos,
+			.filho-exemplo {
 				padding-left: 90px;
 			}
 		</style>

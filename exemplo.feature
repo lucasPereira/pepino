@@ -15,3 +15,8 @@ História: História sacar dinheiro
 	    Então garanta que a conta será debitada
 	    E que o dinheiro será liberado
 	    Ou que o cartão será retornado
+
+		Exemplos:
+		| atributo1 | atributo2 |
+		| 1         | "valor a"	|
+		| 2         | "valor b"	|

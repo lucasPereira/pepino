@@ -27,8 +27,10 @@ module.exports = {
 			entrada = entrada.replace(/^Dado(.*)$/gm, '<p class="filho-cenario-contexto"><em>Dado</em>$1</p>');
 			entrada = entrada.replace(/^Quando(.*)$/gm, '<p class="filho-cenario-contexto"><em>Quando</em>$1</p>');
 			entrada = entrada.replace(/^Então(.*)$/gm, '<p class="filho-cenario-contexto"><em>Então</em>$1</p>');
-			entrada = entrada.replace(/^E(.*)$/gm, '<p class="filho-cenario-contexto"><em>E</em>$1</p>');
 			entrada = entrada.replace(/^Ou(.*)$/gm, '<p class="filho-cenario-contexto"><em>Ou</em>$1</p>');
+			entrada = entrada.replace(/^Exemplos:(.*)$/gm, '<p class="exemplos"><em>Exemplos:</em>$1</p>');
+			entrada = entrada.replace(/^E(.*)$/gm, '<p class="filho-cenario-contexto"><em>E</em>$1</p>');
+			entrada = entrada.replace(/^\|(.*)\|$/gm, '<pre class="filho-exemplo">|$1|</pre>');
 			saida += templateHistoria.replace('${conteudo}', `<p class="comentario"># ${arquivo}</p>\n${entrada}`);
 		});
 		saida = template.replace('${conteudo}', saida);

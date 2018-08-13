@@ -1,7 +1,7 @@
 {
   "name": "pepino-conversor",
   "description": "Gerador de documentação para a linguagem Gherkin",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "license": "Unlicense",
   "main": "principal.js",
   "bin": {
